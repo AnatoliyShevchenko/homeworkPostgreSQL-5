@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/articles.css') }}">
+    <title>Articles</title>
+</head>
+<body>
+    <form action="/articles" method="post">
+        <input type="text" name="title" id="title" placeholder="enter title">
+        <input type="text" name="article" id="article" placeholder="enter article">
+        <input type="submit" value="Send">
+        <h3>{{ message }}</h3>
+    </form>
+    {% for i in data %}
+    <div id="post">
+        <h3>Название: {{i[1]}}</h3>
+        <h3>Пост: {{i[2]}}</h3>
+        <h3>Автор: {{i[3]}}</h3>
+    </div>
+    {% endfor %}
+</body>
+</html>
